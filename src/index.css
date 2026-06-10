@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  body {
+    background-color: #050608; /* Clean Minimalism theme base background */
+    color: #cbd5e1; /* slate-300 default color */
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  /* Custom Clean Minimalist radial grid pattern from design template */
+  .cyber-grid {
+    background-size: 32px 32px;
+    background-image: radial-gradient(rgba(59, 130, 246, 0.08) 1.2px, transparent 1.2px);
+  }
+
+  /* Glowing and customized scrolls */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #050608;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #0f172a;
+    border-radius: 3px;
+    border: 1px solid #1e293b;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #06b6d4; /* cyan-500 accent scroll */
+  }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+.animate-scanline {
+  animation: scanline 8s linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+/* Custom Glassmorphism utility aligned to Clean Minimalism (bg-[#0f172a]/50) */
+.glass-panel {
+  background: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(15, 23, 42, 0.7);
+  border-color: rgba(34, 211, 238, 0.3); /* Cyan-400 focus border tint */
+  box-shadow: 0 0 25px rgba(34, 211, 238, 0.08);
+}
+
